@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Lab Caffè · Bar · Eventi · Giochi · San Martino in Trignano, Spoleto</title>
+  <meta name="description" content="The Lab Caffè a San Martino in Trignano, Spoleto. Cocktail ricercati, vini selezionati, biliardino, PS5 e serate karaoke. Aperto H24, dalla colazione alla notte." />
+
+  <!-- SEO / Social — sostituisci "www.thelabcaffe.it" con il dominio reale quando online -->
+  <link rel="canonical" href="https://www.thelabcaffe.it/" />
+  <meta name="theme-color" content="#0D0A08" />
+  <meta property="og:type" content="business.business" />
+  <meta property="og:site_name" content="The Lab Caffè" />
+  <meta property="og:title" content="The Lab Caffè · Non è un bar. È il posto." />
+  <meta property="og:description" content="Cocktail ricercati, vini selezionati, biliardino, PS5 e serate karaoke. Aperto H24 a San Martino in Trignano, Spoleto." />
+  <meta property="og:image" content="https://www.thelabcaffe.it/assets/logo.png" />
+  <meta property="og:url" content="https://www.thelabcaffe.it/" />
+  <meta property="og:locale" content="it_IT" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Lab Caffè · Non è un bar. È il posto." />
+  <meta name="twitter:description" content="Cocktail, vini, biliardino, PS5 e karaoke. Aperto H24 a San Martino in Trignano, Spoleto." />
+  <meta name="twitter:image" content="https://www.thelabcaffe.it/assets/logo.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <!-- Dati strutturati per Google (aggiorna telefono e dominio reali) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BarOrPub",
+    "name": "The Lab Caffè",
+    "image": "https://www.thelabcaffe.it/assets/logo.png",
+    "url": "https://www.thelabcaffe.it/",
+    "telephone": "+39 000 000 0000",
+    "priceRange": "€€",
+    "servesCuisine": "Bar, Caffetteria, Cocktail, Pinsa",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Viale Cerquestrette 36",
+      "addressLocality": "San Martino in Trignano, Spoleto",
+      "postalCode": "06049",
+      "addressRegion": "PG",
+      "addressCountry": "IT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 42.739564990059165,
+      "longitude": 12.6704439791667
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "27"
+    },
+    "sameAs": [
+      "https://www.instagram.com/the_lab_caffe",
+      "https://www.google.com/maps/place/The+LAB+Caff%C3%A8"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- SVG noise grain filter (used by hero) -->
+  <svg class="svg-defs" aria-hidden="true" focusable="false">
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
+      <feColorMatrix type="saturate" values="0" />
+    </filter>
+  </svg>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="The Lab Caffè - Home">
+        <img src="assets/logo.png" alt="The Lab Caffè" class="nav-logo-img" />
+      </a>
+
+      <nav class="nav-links" aria-label="Navigazione principale">
+        <a href="#menu">Menu</a>
+        <a href="#eventi">Eventi</a>
+        <a href="#dove-siamo">Dove Siamo</a>
+      </nav>
+
+      <a href="#dove-siamo" class="btn-nav-cta">Vieni al Lab</a>
+
+      <button class="hamburger" id="hamburger" aria-label="Apri menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile overlay menu -->
+  <div class="mobile-overlay" id="mobileOverlay">
+    <button class="overlay-close" id="overlayClose" aria-label="Chiudi menu">&times;</button>
+    <nav class="overlay-links">
+      <a href="#menu">Menu</a>
+      <a href="#eventi">Eventi</a>
+      <a href="#dove-siamo">Dove Siamo</a>
+      <a href="#dove-siamo" class="btn-primary overlay-cta">Vieni al Lab</a>
+    </nav>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="hero-grain" aria-hidden="true"></div>
+    <div class="hero-inner">
+    <div class="hero-content">
+      <p class="eyebrow hero-eyebrow">BAR · EVENTI · GIOCHI · SAN MARTINO IN TRIGNANO</p>
+
+      <h1 class="hero-headline">
+        <span class="hero-line hero-line-1">Non è un bar.</span>
+        <span class="hero-line hero-line-2">È il posto.</span>
+      </h1>
+
+      <p class="hero-sub">
+        Cocktail ricercati, vini selezionati, biliardino, PS5 e serate karaoke
+        che non finiscono mai. Dalla colazione alla notte — al Lab c'è sempre
+        un motivo per restare.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#menu" class="btn-primary">Guarda il Menu →</a>
+        <a href="#eventi" class="btn-secondary">Prossimi eventi</a>
+      </div>
+
+      <div class="hero-icons">
+        <span>Biliardino</span>
+        <span>PS5</span>
+        <span>Karaoke</span>
+        <span>Cocktail &amp; Vini</span>
+      </div>
+    </div><!-- /hero-content -->
+
+    <div class="hero-visual">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-bubbles" aria-hidden="true">
+        <span class="bubble b1"></span>
+        <span class="bubble b2"></span>
+        <span class="bubble b3"></span>
+        <span class="bubble b4"></span>
+        <span class="bubble b5"></span>
+        <span class="bubble b6"></span>
+        <span class="bubble b7"></span>
+      </div>
+      <img src="assets/logo.png" alt="Logo The Lab Caffè" class="hero-logo" />
+      <div class="hero-badge badge-rating">
+        <span class="badge-star" aria-hidden="true">★</span>
+        <div><strong>4.9</strong><small>27 recensioni Google</small></div>
+      </div>
+      <div class="hero-badge badge-open">
+        <span class="badge-emoji" aria-hidden="true">⏰</span>
+        <div><strong>Aperto H24</strong><small>tutti i giorni</small></div>
+      </div>
+      <div class="hero-badge badge-games">
+        <span class="badge-emoji" aria-hidden="true">🎮</span>
+        <div><strong>PS5 · Biliardino</strong><small>&amp; Karaoke</small></div>
+      </div>
+    </div><!-- /hero-visual -->
+
+    </div><!-- /hero-inner -->
+
+    <div class="hero-infobar">
+      <span>Aperto H24</span>
+      <span class="dot">·</span>
+      <span>San Martino in Trignano, Spoleto</span>
+      <span class="dot">·</span>
+      <span>4.9 su Google</span>
+    </div>
+  </section>
+
+  <!-- ============ PAIN POINT ============ -->
+  <section class="section pain" id="pain">
+    <div class="container">
+      <h2 class="section-title reveal fade-in-up">Quante volte hai pensato...</h2>
+
+      <div class="pain-grid stagger-parent">
+        <div class="pain-card reveal fade-in-up" style="--delay:0s">
+          <div class="pain-icon" aria-hidden="true">😮‍💨</div>
+          <p>"Vado al bar, bevo qualcosa in piedi e torno a casa. Sempre uguale."</p>
+        </div>
+        <div class="pain-card reveal fade-in-up" style="--delay:0.15s">
+          <div class="pain-icon" aria-hidden="true">📱</div>
+          <p>"Non c'è mai niente da fare — tutti sul telefono in silenzio."</p>
+        </div>
+        <div class="pain-card reveal fade-in-up" style="--delay:0.3s">
+          <div class="pain-icon" aria-hidden="true">🔍</div>
+          <p>"Per trovare un posto dove stare bene la sera devo andare fino in città."</p>
+        </div>
+      </div>
+
+      <p class="pain-transition reveal fade-in-up">A San Martino esiste un'alternativa.</p>
+    </div>
+  </section>
+
+  <!-- ============ SOLUZIONE ============ -->
+  <section class="section solution" id="solution">
+    <div class="container">
+      <h2 class="solution-headline reveal fade-in-up">
+        Al Lab ogni ora<br />ha il suo perché.
+      </h2>
+      <p class="solution-text reveal fade-in-up" style="--delay:0.15s">
+        "Lab" non è solo un nome. È una promessa. Un posto progettato per farti
+        venire voglia di restare — la mattina per la colazione, il pomeriggio
+        per una partita, la sera per un cocktail e magari finire a cantare.
+      </p>
+
+      <div class="pillars">
+        <div class="pillar reveal slide-in-left" style="--delay:0s">
+          <span class="pillar-label">🍹 Bevi bene</span>
+          <p class="pillar-text">Cocktail curati, gin selezionati, vini umbri e Franciacorta.</p>
+        </div>
+        <div class="pillar reveal slide-in-left" style="--delay:0.15s">
+          <span class="pillar-label">🎮 Gioca e sfida</span>
+          <p class="pillar-text">Biliardino e PS5 disponibile per sfidare gli amici.</p>
+        </div>
+        <div class="pillar reveal slide-in-left" style="--delay:0.3s">
+          <span class="pillar-label">🎤 Canta e divertiti</span>
+          <p class="pillar-text">Serate karaoke regolari — il microfono è aperto a tutti.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BENEFICI ============ -->
+  <section class="section benefits" id="benefits">
+    <div class="container">
+      <h2 class="section-title reveal fade-in-up">
+        Cinque motivi per cui non<br />tornerai al bar di prima.
+      </h2>
+
+      <div class="benefits-grid stagger-parent">
+        <article class="benefit-card reveal fade-in-up" style="--delay:0s">
+          <div class="benefit-icon" aria-hidden="true">🍹</div>
+          <h3>Cocktail &amp; Vini</h3>
+          <p>Non solo da bere — da assaporare. Gin da tutto il mondo, Franciacorta,
+            Bollinger, vini umbri come Scacciadiavoli e Tabarrini. Ogni calice è
+            una scelta, non una scorciatoia.</p>
+        </article>
+        <article class="benefit-card reveal fade-in-up" style="--delay:0.12s">
+          <div class="benefit-icon" aria-hidden="true">⚽</div>
+          <h3>Biliardino</h3>
+          <p>Il pomeriggio ha un senso diverso. Il biliardino è lì che ti aspetta.
+            Sfida un amico, impara, prendi il ritmo. Niente fretta, niente orologio.</p>
+        </article>
+        <article class="benefit-card reveal fade-in-up" style="--delay:0.24s">
+          <div class="benefit-icon" aria-hidden="true">🎮</div>
+          <h3>PS5</h3>
+          <p>Non solo per i gamer. La PS5 è per tutti — chi gioca da sempre e chi
+            vuole provare per la prima volta. Una partita diventa due, due diventano
+            una serata.</p>
+        </article>
+        <article class="benefit-card reveal fade-in-up" style="--delay:0.36s">
+          <div class="benefit-icon" aria-hidden="true">🎤</div>
+          <h3>Karaoke</h3>
+          <p>La timidezza dura tre minuti. Le serate karaoke al Lab sono quelle dove
+            alla fine canta anche chi diceva "io no, giuro". Microfono aperto,
+            giudizi vietati.</p>
+        </article>
+        <article class="benefit-card reveal fade-in-up" style="--delay:0.48s">
+          <div class="benefit-icon" aria-hidden="true">🥐</div>
+          <h3>H24 — Dalla colazione alla notte</h3>
+          <p>Cornetto e cappuccino la mattina, pausa con panino o pinsa, aperitivo
+            al tramonto, cocktail e giochi fino a tardi. Un solo posto, mille
+            versioni della giornata.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOCIAL PROOF ============ -->
+  <section class="section social" id="social">
+    <div class="container">
+      <h2 class="section-title light reveal fade-in-up">Lo dicono i nostri ospiti.</h2>
+      <p class="social-sub reveal fade-in">4.9 su Google · 27 recensioni</p>
+
+      <blockquote class="review-hero reveal fade-in-up">
+        <div class="stars stars-anim" aria-label="5 stelle su 5">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="review-hero-text">
+          "Quello che mancava a Spoleto. Locale molto ben curato, personale sempre
+          gentile e accogliente, aperto a tutte le ore. C'è qualcosa di interessante
+          per qualsiasi fascia di età — tornei, giochi e belle serate all'insegna
+          della musica."
+        </p>
+        <cite class="review-hero-name">— Mirko P., Local Guide Google</cite>
+      </blockquote>
+
+      <div class="reviews-grid stagger-parent">
+        <div class="review-card reveal fade-in-up" style="--delay:0s">
+          <div class="stars small"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p>"Bar H24 davvero top! Cornetti super farciti e sempre freschi. Panini
+            abbondanti e di qualità. Servizio veloce e ambiente serale vivace."</p>
+          <cite>— Luigi L.</cite>
+        </div>
+        <div class="review-card reveal fade-in-up" style="--delay:0.12s">
+          <div class="stars small"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p>"Bellissima location, moderna e accogliente, curata nei dettagli. Ampio
+            parcheggio, tavoli interni ed esterni. Personale professionale e gentile."</p>
+          <cite>— Serena B. · Local Guide</cite>
+        </div>
+        <div class="review-card reveal fade-in-up" style="--delay:0.24s">
+          <div class="stars small"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p>"Eravamo in vacanza e abbiamo fatto colazione due mattine di fila.
+            Cappuccino e cornetti stra buoni. Le ragazze di una gentilezza strepitosa."</p>
+          <cite>— Charlie70 · Local Guide</cite>
+        </div>
+      </div>
+
+      <div class="social-strip reveal fade-in">
+        <span>4.9 su Google</span>
+        <span class="dot">·</span>
+        <span>Karaoke ogni settimana</span>
+        <span class="dot">·</span>
+        <span>Biliardino H24</span>
+        <span class="dot">·</span>
+        <span>PS5 disponibile</span>
+      </div>
+
+      <a href="https://www.google.com/maps/place/The+LAB+Caff%C3%A8" target="_blank" rel="noopener" class="social-cta">
+        Leggi tutte le 27 recensioni su Google →
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ MENU ============ -->
+  <section class="section menu" id="menu">
+    <div class="container">
+      <h2 class="section-title reveal fade-in-up">Cosa trovi al Lab.</h2>
+      <p class="menu-sub reveal fade-in">Dal mattino alla notte, c'è sempre qualcosa per te.</p>
+
+      <div class="menu-tabs reveal fade-in" role="tablist">
+        <button class="menu-tab active" data-tab="colazione" role="tab">☕ Colazione</button>
+        <button class="menu-tab" data-tab="pranzo" role="tab">🥪 Pranzo</button>
+        <button class="menu-tab" data-tab="aperitivo" role="tab">🥂 Aperitivo</button>
+        <button class="menu-tab" data-tab="cocktail" role="tab">🍸 Cocktail</button>
+        <button class="menu-tab" data-tab="vini" role="tab">🍷 Vini</button>
+        <button class="menu-tab" data-tab="pinse" role="tab">🍕 Pinse</button>
+      </div>
+
+      <div class="menu-panels">
+
+        <!-- COLAZIONE -->
+        <div class="menu-panel active" data-panel="colazione">
+          <div class="menu-columns">
+            <div class="menu-block">
+              <h4 class="menu-block-title">Caffetteria</h4>
+              <div class="menu-item"><span>Caffè Espresso</span><span class="price">€1,20</span></div>
+              <div class="menu-item"><span>Cappuccino</span><span class="price">€1,50</span></div>
+              <div class="menu-item"><span>Cappuccino Soia</span><span class="price">€1,80</span></div>
+              <div class="menu-item"><span>Cappuccino Senza Lattosio</span><span class="price">€1,70</span></div>
+              <div class="menu-item"><span>Latte Macchiato</span><span class="price">€1,80</span></div>
+              <div class="menu-item"><span>Caffè Americano</span><span class="price">€1,50</span></div>
+              <div class="menu-item"><span>Caffè Shekerato</span><span class="price">€2,50</span></div>
+            </div>
+            <div class="menu-block">
+              <h4 class="menu-block-title">Dolci &amp; Cornetteria</h4>
+              <div class="menu-item"><span>Cornetto Farcito <em>(marmellata · crema · cioccolato)</em></span><span class="price">€1,00</span></div>
+              <div class="menu-item"><span>Cornetto Speciale <em>(Oreo · Kinder · Pistacchio · Kit Kat)</em></span><span class="price">€1,00</span></div>
+              <div class="menu-item"><span>Cornetto Senza Glutine</span><span class="price">€2,70</span></div>
+              <div class="menu-item"><span>Maritozzi</span><span class="price">€1,80</span></div>
+              <div class="menu-item"><span>Brioche Burro Farcita <em>(Nutella · Pistacchio)</em></span><span class="price">€4,00</span></div>
+              <div class="menu-item"><span>Waffel Nutella</span><span class="price">€3,00</span></div>
+              <div class="menu-item"><span>Cannolo Siciliano</span><span class="price">€2,30</span></div>
+              <div class="menu-item"><span>Fetta di Torta</span><span class="price">€2,00</span></div>
+              <div class="menu-item"><span>Donut's</span><span class="price">€2,00</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRANZO -->
+        <div class="menu-panel" data-panel="pranzo">
+          <div class="menu-columns">
+            <div class="menu-block">
+              <h4 class="menu-block-title">Panini &amp; Pause</h4>
+              <div class="menu-item"><span>Panino <em>(Prosciutto/Mortadella/Coppa/Salame/Speck/Lonza)</em></span><span class="price">€4,00</span></div>
+              <div class="menu-item"><span>Panino Cotoletta</span><span class="price">€4,00</span></div>
+              <div class="menu-item"><span>Panino Senza Glutine</span><span class="price">€4,00</span></div>
+              <div class="menu-item"><span>Tramezzino / Torta al Testo</span><span class="price">€3,00</span></div>
+              <div class="menu-item"><span>Pizza Bianca</span><span class="price">€1,60</span></div>
+              <div class="menu-item"><span>Pizza Bianca Farcita</span><span class="price">€2,50</span></div>
+              <div class="menu-item"><span>Pizza Rossa</span><span class="price">€2,00</span></div>
+              <div class="menu-item"><span>Toast</span><span class="price">€1,50</span></div>
+              <div class="menu-item"><span>Piadina</span><span class="price">€2,00</span></div>
+            </div>
+            <div class="menu-block">
+              <h4 class="menu-block-title">Taglieri</h4>
+              <div class="menu-item"><span>Tagliere Piccolo</span><span class="price">€6,00</span></div>
+              <div class="menu-item"><span>Tagliere Medio</span><span class="price">€8,00</span></div>
+              <div class="menu-item"><span>Tagliere Grande</span><span class="price">€10,00</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- APERITIVO -->
+        <div class="menu-panel" data-panel="aperitivo">
+          <div class="menu-columns">
+            <div class="menu-block">
+              <h4 class="menu-block-title">Aperitivi</h4>
+              <div class="menu-item"><span>Aperol Spritz</span><span class="price">€5,50</span></div>
+              <div class="menu-item"><span>Campari / Hugo Spritz</span><span class="price">€6,00</span></div>
+              <div class="menu-item"><span>Bellini / Mimosa</span><span class="price">€5,50</span></div>
+              <div class="menu-item"><span>Ocean Lab <em class="signature">★ signature</em></span><span class="price">€6,00</span></div>
+              <div class="menu-item"><span>Crodino / Bitter</span><span class="price">€3,00</span></div>
+            </div>
+            <div class="menu-block">
+              <h4 class="menu-block-title">Al Calice</h4>
+              <div class="menu-item"><span>Calice Prosecco</span><span class="price">€5,00</span></div>
+              <div class="menu-item"><span>Calice Vino</span><span class="price">€5,00</span></div>
+              <div class="menu-item"><span>Calice Bocca di Rosa rosé</span><span class="price">€7,00</span></div>
+              <div class="menu-item"><span>Calice Sagrantino</span><span class="price">€7,00</span></div>
+              <div class="menu-item"><span>Calice Berlucchi</span><span class="price">€10,00</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COCKTAIL -->
+        <div class="menu-panel" data-panel="cocktail">
+          <div class="menu-columns">
+            <div class="menu-block">
+              <h4 class="menu-block-title">Gin</h4>
+              <div class="menu-item"><span>Gin Base</span><span class="price">€6,00</span></div>
+              <div class="menu-item"><span>Gin Pompelmo Rosa</span><span class="price">€9,00</span></div>
+              <div class="menu-item"><span>Gin Bulldog / Caelestins</span><span class="price">€9,00</span></div>
+              <div class="menu-item"><span>Gin Hendrick's / Roku</span><span class="price">€10,00</span></div>
+              <div class="menu-item"><span>Gin Monkey / J.Rose</span><span class="price">€13,00</span></div>
+              <div class="menu-item"><span>Gin Cittadelle / Sabatini</span><span class="price">€12,00</span></div>
+              <div class="menu-item"><span>Gin Il Professore</span><span class="price">€12,00</span></div>
+              <div class="menu-item"><span>Gin Sabatini 0 Alcol</span><span class="price">€10,00</span></div>
+            </div>
+            <div class="menu-block">
+              <h4 class="menu-block-title">Classici</h4>
+              <div class="menu-item"><span>Negroni</span><span class="price">€7,00</span></div>
+              <div class="menu-item"><span>Moscow / Italian Mule</span><span class="price">€7,00</span></div>
+              <div class="menu-item"><span>Vodka Lemon/Tonic/Redbull</span><span class="price">€7,00</span></div>
+              <div class="menu-item"><span>Sex on The Beach</span><span class="price">€7,00</span></div>
+              <div class="menu-item"><span>Tequila Sunrise</span><span class="price">€8,00</span></div>
+              <div class="menu-item"><span>Long Island</span><span class="price">€8,00</span></div>
+              <div class="menu-item"><span>Cuba Libre</span><span class="price">€5,00</span></div>
+              <div class="menu-item"><span>Amaretto Sour</span><span class="price">€7,00</span></div>
+              <div class="menu-item"><span>Blue Lagoon</span><span class="price">€7,00</span></div>
+              <div class="menu-item"><span>Analcolico</span><span class="price">€7,00</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- VINI -->
+        <div class="menu-panel" data-panel="vini">
+          <div class="menu-columns">
+            <div class="menu-block">
+              <h4 class="menu-block-title">Bianchi</h4>
+              <div class="menu-item"><span>Pfitscher Pinot Bianco</span><span class="price">€22,00</span></div>
+              <div class="menu-item"><span>Gewurztraminer</span><span class="price">€22,00</span></div>
+              <div class="menu-item"><span>Bianco Etna Doc</span><span class="price">€22,00</span></div>
+              <div class="menu-item"><span>La Valentina Pecorino</span><span class="price">€18,00</span></div>
+              <div class="menu-item"><span>Scacciadiavoli Pasdose <em class="signature">★</em></span><span class="price">€25,00</span></div>
+              <h4 class="menu-block-title">Rossi</h4>
+              <div class="menu-item"><span>Tabarrini Padrone Vigne <em class="signature">★</em></span><span class="price">€20,00</span></div>
+              <div class="menu-item"><span>Etna Rosso Cottanera</span><span class="price">€22,00</span></div>
+              <div class="menu-item"><span>Barbera d'Asti</span><span class="price">€22,00</span></div>
+              <div class="menu-item"><span>Maculan Pinot Nero</span><span class="price">€25,00</span></div>
+            </div>
+            <div class="menu-block">
+              <h4 class="menu-block-title">Rosé</h4>
+              <div class="menu-item"><span>Tabarrini Bocca di Rosa <em class="signature">★</em></span><span class="price">€25,00</span></div>
+              <div class="menu-item"><span>Scacciadiavoli Rosé <em class="signature">★</em></span><span class="price">€25,00</span></div>
+              <h4 class="menu-block-title">Bollicine</h4>
+              <div class="menu-item"><span>Berlucchi Franciacorta</span><span class="price">€32,00</span></div>
+              <div class="menu-item"><span>Berlucchi Satèn / Rosé</span><span class="price">€35,00</span></div>
+              <div class="menu-item"><span>Bollinger Champagne</span><span class="price">€95,00</span></div>
+              <p class="menu-note">★ = produttore umbro locale</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PINSE -->
+        <div class="menu-panel" data-panel="pinse">
+          <div class="menu-columns">
+            <div class="menu-block">
+              <h4 class="menu-block-title">Pinse Romane</h4>
+              <div class="menu-item"><span>Pinsa Bianca</span><span class="price">€6,00</span></div>
+              <div class="menu-item"><span>Pinsa Margherita</span><span class="price">€7,00</span></div>
+              <div class="menu-item"><span>Pinsa Bianca Crudo/Rucola</span><span class="price">€8,00</span></div>
+              <div class="menu-item"><span>Pinsa Margherita Norcina <em class="signature">★</em></span><span class="price">€8,00</span></div>
+              <div class="menu-item"><span>Pinsa Margherita S.Piccante</span><span class="price">€8,00</span></div>
+            </div>
+            <div class="menu-block">
+              <h4 class="menu-block-title">&nbsp;</h4>
+              <div class="menu-item"><span>Pinsa Zucchine/Prosciutto</span><span class="price">€9,00</span></div>
+              <div class="menu-item"><span>Pinsa Margherita Funghi</span><span class="price">€8,00</span></div>
+              <div class="menu-item"><span>Pinsa Salsiccia e Patate</span><span class="price">€9,00</span></div>
+              <div class="menu-item"><span>Pinsa con Verdure</span><span class="price">€9,00</span></div>
+              <p class="menu-note">★ = specialità della casa</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /menu-panels -->
+
+      <div class="menu-digital reveal fade-in">
+        <a href="https://www.menudigitale.io/thelabcaffe" target="_blank" rel="noopener" class="btn-secondary dark">Apri il menu digitale completo →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EVENTI ============ -->
+  <section class="section eventi" id="eventi">
+    <div class="container">
+      <h2 class="section-title light reveal fade-in-up">Al Lab succede sempre qualcosa.</h2>
+      <p class="eventi-sub reveal fade-in">Seguici su Instagram per non perdere le prossime serate.</p>
+
+      <div class="eventi-grid stagger-parent">
+        <article class="evento-card reveal fade-in-up" style="--delay:0s">
+          <div class="evento-icon" aria-hidden="true">🎤</div>
+          <h3>Serate Karaoke</h3>
+          <p>Microfono aperto a tutti. La timidezza dura tre minuti — poi canti anche tu.</p>
+        </article>
+        <article class="evento-card reveal fade-in-up" style="--delay:0.12s">
+          <div class="evento-icon" aria-hidden="true">🎮</div>
+          <h3>PS5 &amp; Tornei</h3>
+          <p>Disponibile H24. Sfide tra amici, tornei a sorpresa, una partita che diventa la serata.</p>
+        </article>
+        <article class="evento-card reveal fade-in-up" style="--delay:0.24s">
+          <div class="evento-icon" aria-hidden="true">⚽</div>
+          <h3>Biliardino</h3>
+          <p>Il classico che non stanca mai. Sfida chi vuoi, quando vuoi.</p>
+        </article>
+        <article class="evento-card reveal fade-in-up" style="--delay:0.36s">
+          <div class="evento-icon" aria-hidden="true">☀️</div>
+          <h3>Tavoli Esterni</h3>
+          <p>Quando il tempo lo permette, il Lab si allarga fuori. Ampio parcheggio incluso.</p>
+        </article>
+      </div>
+
+      <a href="https://www.instagram.com/the_lab_caffe" target="_blank" rel="noopener" class="eventi-cta">
+        Seguici su Instagram → @the_lab_caffe
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ CTA FINALE ============ -->
+  <section class="section cta-final" id="cta-final">
+    <div class="container">
+      <h2 class="cta-headline reveal fade-in-up">Cosa aspetti?</h2>
+      <p class="cta-sub reveal fade-in-up" style="--delay:0.15s">
+        Il Lab è aperto. H24. Che sia per un caffè alle 7 o un cocktail a
+        mezzanotte — c'è sempre un posto per te.
+      </p>
+      <div class="cta-buttons reveal fade-in-up" style="--delay:0.3s">
+        <a href="#dove-siamo" class="btn-primary pulse">Vieni al Lab →</a>
+        <a href="#menu" class="btn-secondary">Guarda il Menu</a>
+      </div>
+      <p class="cta-micro reveal fade-in">Biliardino · PS5 · Karaoke · Cocktail</p>
+    </div>
+  </section>
+
+  <!-- ============ INFO + MAPPA ============ -->
+  <section class="section info" id="dove-siamo">
+    <div class="container info-grid">
+      <div class="info-col reveal slide-in-left">
+        <p class="eyebrow info-eyebrow">DOVE SIAMO</p>
+
+        <div class="info-block">
+          <div class="info-icon" aria-hidden="true">📍</div>
+          <div>
+            <strong>Viale Cerquestrette 36</strong><br />
+            San Martino in Trignano<br />
+            06049 Spoleto (PG)<br />
+            <a href="https://www.google.com/maps/place/The+LAB+Caff%C3%A8" target="_blank" rel="noopener" class="info-link">Apri in Google Maps →</a>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-icon" aria-hidden="true">⏰</div>
+          <div><strong>Orari</strong><br />Aperto H24 — tutti i giorni</div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-icon" aria-hidden="true">🚗</div>
+          <div><strong>Parcheggio</strong><br />Ampio parcheggio gratuito</div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-icon" aria-hidden="true">☀️</div>
+          <div><strong>Spazi</strong><br />Tavoli interni ed esterni</div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-icon" aria-hidden="true">📞</div>
+          <div><strong>Contatti</strong><br /><a href="tel:+390000000000" class="info-link">Chiama il Lab</a> <span class="info-tbd">(numero da inserire)</span></div>
+        </div>
+
+        <div class="info-social">
+          <a href="https://www.instagram.com/the_lab_caffe" target="_blank" rel="noopener">📸 Instagram: @the_lab_caffe</a>
+          <a href="#" class="fb">👥 Facebook: the lab Caffè</a>
+        </div>
+      </div>
+
+      <div class="info-col map-col reveal fade-in">
+        <iframe
+          class="map-embed"
+          src="https://www.google.com/maps?q=42.739564990059165,12.6704439791667&hl=it&z=16&output=embed"
+          width="100%" height="450" style="border:0;" allowfullscreen=""
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="The Lab Caffè su Google Maps"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-top">
+        <a href="#hero" class="footer-logo" aria-label="The Lab Caffè">
+          <img src="assets/logo.png" alt="The Lab Caffè" class="footer-logo-img" />
+        </a>
+        <p class="footer-addr">Viale Cerquestrette 36 · Spoleto</p>
+      </div>
+      <nav class="footer-links">
+        <a href="#menu">Menu</a>
+        <a href="#eventi">Eventi</a>
+        <a href="#dove-siamo">Dove Siamo</a>
+      </nav>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/the_lab_caffe" target="_blank" rel="noopener">📸 Instagram</a>
+        <a href="#">👥 Facebook</a>
+      </div>
+      <div class="footer-divider"></div>
+      <p class="footer-copy">© 2025 The Lab Caffè · Tutti i diritti riservati</p>
+      <p class="footer-piva">P.IVA da inserire</p>
+    </div>
+  </footer>
+
+  <!-- Barra CTA fissa (solo mobile) — aggiorna il numero di telefono -->
+  <nav class="mobile-cta-bar" id="mobileCtaBar" aria-label="Azioni rapide">
+    <a href="#menu" class="mcta-ghost">Menu</a>
+    <a href="tel:+390000000000" class="mcta-primary">Chiama</a>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=42.739564990059165,12.6704439791667" target="_blank" rel="noopener" class="mcta-ghost">Indicazioni</a>
+  </nav>
+
+  <!-- Scripts -->
+  <script src="js/main.js" defer></script>
+  <script src="js/menu.js" defer></script>
+  <script src="js/animations.js" defer></script>
+</body>
+</html>
