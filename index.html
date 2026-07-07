@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Lab Caffè · Bar · Eventi · Giochi · San Martino in Trignano, Spoleto</title>
-  <meta name="description" content="The Lab Caffè a San Martino in Trignano, Spoleto. Cocktail ricercati, vini selezionati, biliardino, PS5 e serate karaoke. Aperto H24, dalla colazione alla notte." />
+  <title>The Lab Caffè | Bar, PS5 e Karaoke a Spoleto</title>
+  <meta name="description" content="Cerchi dove uscire a San Martino in Trignano (Spoleto)? The Lab Caffè non è un semplice bar. È il posto per cocktail, biliardino, PS5 e karaoke. Vieni a trovarci!" />
 
   <!-- SEO / Social — sostituisci "www.thelabcaffe.it" con il dominio reale quando online -->
   <link rel="canonical" href="https://www.thelabcaffe.it/" />
@@ -13,17 +13,23 @@
   <meta property="og:site_name" content="The Lab Caffè" />
   <meta property="og:title" content="The Lab Caffè · Non è un bar. È il posto." />
   <meta property="og:description" content="Cocktail ricercati, vini selezionati, biliardino, PS5 e serate karaoke. Aperto H24 a San Martino in Trignano, Spoleto." />
-  <meta property="og:image" content="https://www.thelabcaffe.it/assets/logo.png" />
+  <!-- TODO: creare il file assets/og-image.jpg (1200×630px) — social card dedicata. Se manca, i social useranno un fallback poco leggibile. -->
+  <meta property="og:image" content="https://www.thelabcaffe.it/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:url" content="https://www.thelabcaffe.it/" />
   <meta property="og:locale" content="it_IT" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The Lab Caffè · Non è un bar. È il posto." />
   <meta name="twitter:description" content="Cocktail, vini, biliardino, PS5 e karaoke. Aperto H24 a San Martino in Trignano, Spoleto." />
-  <meta name="twitter:image" content="https://www.thelabcaffe.it/assets/logo.png" />
+  <!-- TODO: stesso file 1200×630 di og:image -->
+  <meta name="twitter:image" content="https://www.thelabcaffe.it/assets/og-image.jpg" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Preload del CSS dei font principali (Inter) per ridurre il render-blocking -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet" />
 
   <!-- Favicon -->
@@ -34,17 +40,19 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/animations.css" />
 
-  <!-- Dati strutturati per Google (aggiorna telefono e dominio reali) -->
+  <!-- Dati strutturati per Google — TODO: aggiungere "vatID" con la Partita IVA quando disponibile -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "BarOrPub",
+    "@type": ["FoodEstablishment", "BarOrPub"],
     "name": "The Lab Caffè",
     "image": "https://www.thelabcaffe.it/assets/logo.png",
     "url": "https://www.thelabcaffe.it/",
-    "telephone": "+39 000 000 0000",
+    "telephone": "+390743522753",
     "priceRange": "€€",
-    "servesCuisine": "Bar, Caffetteria, Cocktail, Pinsa",
+    "servesCuisine": ["Bar", "Caffetteria", "Cocktail", "Pinsa"],
+    "menu": "https://www.menudigitale.io/thelabcaffe",
+    "hasMenu": "https://www.menudigitale.io/thelabcaffe",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Viale Cerquestrette 36",
@@ -55,8 +63,8 @@
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 42.739564990059165,
-      "longitude": 12.6704439791667
+      "latitude": 42.739565,
+      "longitude": 12.670444
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
@@ -92,17 +100,21 @@
   <!-- ============ NAVBAR ============ -->
   <header class="navbar" id="navbar">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo" aria-label="The Lab Caffè - Home">
-        <img src="assets/logo.png" alt="The Lab Caffè" class="nav-logo-img" />
+      <a href="#hero" class="nav-logo">
+        <picture>
+          <source srcset="assets/logo.webp" type="image/webp" />
+          <img src="assets/logo.png" alt="The Lab Caffè — bar, PS5 e karaoke a Spoleto" class="nav-logo-img" width="630" height="786" />
+        </picture>
       </a>
 
       <nav class="nav-links" aria-label="Navigazione principale">
         <a href="#menu">Menu</a>
         <a href="#eventi">Eventi</a>
-        <a href="#dove-siamo">Dove Siamo</a>
+        <a href="#orari">Orari</a>
+        <a href="#dove-siamo">Raggiungi il Lab</a>
       </nav>
 
-      <a href="#dove-siamo" class="btn-nav-cta">Vieni al Lab</a>
+      <a href="#dove-siamo" class="btn-nav-cta">📍 Raggiungi il Lab</a>
 
       <button class="hamburger" id="hamburger" aria-label="Apri menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -116,8 +128,9 @@
     <nav class="overlay-links">
       <a href="#menu">Menu</a>
       <a href="#eventi">Eventi</a>
-      <a href="#dove-siamo">Dove Siamo</a>
-      <a href="#dove-siamo" class="btn-primary overlay-cta">Vieni al Lab</a>
+      <a href="#orari">Orari</a>
+      <a href="#dove-siamo">Raggiungi il Lab</a>
+      <a href="#dove-siamo" class="btn-primary overlay-cta">📍 Raggiungi il Lab</a>
     </nav>
   </div>
 
@@ -131,6 +144,7 @@
       <h1 class="hero-headline">
         <span class="hero-line hero-line-1">Non è un bar.</span>
         <span class="hero-line hero-line-2">È il posto.</span>
+        <span class="hero-h1-seo">The Lab Caffè — il posto dove svoltare la serata a Spoleto</span>
       </h1>
 
       <p class="hero-sub">
@@ -140,7 +154,7 @@
       </p>
 
       <div class="hero-cta">
-        <a href="#menu" class="btn-primary">Guarda il Menu →</a>
+        <a href="#menu" class="btn-primary">Guarda cosa si beve →</a>
         <a href="#eventi" class="btn-secondary">Prossimi eventi</a>
       </div>
 
@@ -163,7 +177,10 @@
         <span class="bubble b6"></span>
         <span class="bubble b7"></span>
       </div>
-      <img src="assets/logo.png" alt="Logo The Lab Caffè" class="hero-logo" />
+      <picture>
+        <source srcset="assets/logo.webp" type="image/webp" />
+        <img src="assets/logo.png" alt="The Lab Caffè – bar a San Martino in Trignano, Spoleto" class="hero-logo" width="630" height="786" fetchpriority="high" />
+      </picture>
       <div class="hero-badge badge-rating">
         <span class="badge-star" aria-hidden="true">★</span>
         <div><strong>4.9</strong><small>27 recensioni Google</small></div>
@@ -232,7 +249,7 @@
         </div>
         <div class="pillar reveal slide-in-left" style="--delay:0.15s">
           <span class="pillar-label">🎮 Gioca e sfida</span>
-          <p class="pillar-text">Biliardino e PS5 disponibile per sfidare gli amici.</p>
+          <p class="pillar-text">Biliardino e PS5 sempre pronti per sfidare gli amici.</p>
         </div>
         <div class="pillar reveal slide-in-left" style="--delay:0.3s">
           <span class="pillar-label">🎤 Canta e divertiti</span>
@@ -246,7 +263,7 @@
   <section class="section benefits" id="benefits">
     <div class="container">
       <h2 class="section-title reveal fade-in-up">
-        Cinque motivi per cui non<br />tornerai al bar di prima.
+        Giochi, Karaoke e Cocktail<br />a San Martino in Trignano.
       </h2>
 
       <div class="benefits-grid stagger-parent">
@@ -350,6 +367,10 @@
       <h2 class="section-title reveal fade-in-up">Cosa trovi al Lab.</h2>
       <p class="menu-sub reveal fade-in">Dal mattino alla notte, c'è sempre qualcosa per te.</p>
 
+      <div class="menu-digital menu-digital-top reveal fade-in">
+        <a href="https://www.menudigitale.io/thelabcaffe" target="_blank" rel="noopener" class="btn-secondary dark">Apri il menu digitale completo →</a>
+      </div>
+
       <div class="menu-tabs reveal fade-in" role="tablist">
         <button class="menu-tab active" data-tab="colazione" role="tab">☕ Colazione</button>
         <button class="menu-tab" data-tab="pranzo" role="tab">🥪 Pranzo</button>
@@ -365,17 +386,17 @@
         <div class="menu-panel active" data-panel="colazione">
           <div class="menu-columns">
             <div class="menu-block">
-              <h4 class="menu-block-title">Caffetteria</h4>
+              <h3 class="menu-block-title">Caffetteria</h3>
               <div class="menu-item"><span>Caffè Espresso</span><span class="price">€1,20</span></div>
               <div class="menu-item"><span>Cappuccino</span><span class="price">€1,50</span></div>
               <div class="menu-item"><span>Cappuccino Soia</span><span class="price">€1,80</span></div>
               <div class="menu-item"><span>Cappuccino Senza Lattosio</span><span class="price">€1,70</span></div>
               <div class="menu-item"><span>Latte Macchiato</span><span class="price">€1,80</span></div>
               <div class="menu-item"><span>Caffè Americano</span><span class="price">€1,50</span></div>
-              <div class="menu-item"><span>Caffè Shekerato</span><span class="price">€2,50</span></div>
+              <div class="menu-item"><span>Caffè Shakerato</span><span class="price">€2,50</span></div>
             </div>
             <div class="menu-block">
-              <h4 class="menu-block-title">Dolci &amp; Cornetteria</h4>
+              <h3 class="menu-block-title">Dolci &amp; Cornetteria</h3>
               <div class="menu-item"><span>Cornetto Farcito <em>(marmellata · crema · cioccolato)</em></span><span class="price">€1,00</span></div>
               <div class="menu-item"><span>Cornetto Speciale <em>(Oreo · Kinder · Pistacchio · Kit Kat)</em></span><span class="price">€1,00</span></div>
               <div class="menu-item"><span>Cornetto Senza Glutine</span><span class="price">€2,70</span></div>
@@ -384,7 +405,7 @@
               <div class="menu-item"><span>Waffel Nutella</span><span class="price">€3,00</span></div>
               <div class="menu-item"><span>Cannolo Siciliano</span><span class="price">€2,30</span></div>
               <div class="menu-item"><span>Fetta di Torta</span><span class="price">€2,00</span></div>
-              <div class="menu-item"><span>Donut's</span><span class="price">€2,00</span></div>
+              <div class="menu-item"><span>Donuts</span><span class="price">€2,00</span></div>
             </div>
           </div>
         </div>
@@ -393,7 +414,7 @@
         <div class="menu-panel" data-panel="pranzo">
           <div class="menu-columns">
             <div class="menu-block">
-              <h4 class="menu-block-title">Panini &amp; Pause</h4>
+              <h3 class="menu-block-title">Panini &amp; Pause</h3>
               <div class="menu-item"><span>Panino <em>(Prosciutto/Mortadella/Coppa/Salame/Speck/Lonza)</em></span><span class="price">€4,00</span></div>
               <div class="menu-item"><span>Panino Cotoletta</span><span class="price">€4,00</span></div>
               <div class="menu-item"><span>Panino Senza Glutine</span><span class="price">€4,00</span></div>
@@ -405,7 +426,7 @@
               <div class="menu-item"><span>Piadina</span><span class="price">€2,00</span></div>
             </div>
             <div class="menu-block">
-              <h4 class="menu-block-title">Taglieri</h4>
+              <h3 class="menu-block-title">Taglieri</h3>
               <div class="menu-item"><span>Tagliere Piccolo</span><span class="price">€6,00</span></div>
               <div class="menu-item"><span>Tagliere Medio</span><span class="price">€8,00</span></div>
               <div class="menu-item"><span>Tagliere Grande</span><span class="price">€10,00</span></div>
@@ -417,7 +438,7 @@
         <div class="menu-panel" data-panel="aperitivo">
           <div class="menu-columns">
             <div class="menu-block">
-              <h4 class="menu-block-title">Aperitivi</h4>
+              <h3 class="menu-block-title">Aperitivi</h3>
               <div class="menu-item"><span>Aperol Spritz</span><span class="price">€5,50</span></div>
               <div class="menu-item"><span>Campari / Hugo Spritz</span><span class="price">€6,00</span></div>
               <div class="menu-item"><span>Bellini / Mimosa</span><span class="price">€5,50</span></div>
@@ -425,7 +446,7 @@
               <div class="menu-item"><span>Crodino / Bitter</span><span class="price">€3,00</span></div>
             </div>
             <div class="menu-block">
-              <h4 class="menu-block-title">Al Calice</h4>
+              <h3 class="menu-block-title">Al Calice</h3>
               <div class="menu-item"><span>Calice Prosecco</span><span class="price">€5,00</span></div>
               <div class="menu-item"><span>Calice Vino</span><span class="price">€5,00</span></div>
               <div class="menu-item"><span>Calice Bocca di Rosa rosé</span><span class="price">€7,00</span></div>
@@ -439,7 +460,7 @@
         <div class="menu-panel" data-panel="cocktail">
           <div class="menu-columns">
             <div class="menu-block">
-              <h4 class="menu-block-title">Gin</h4>
+              <h3 class="menu-block-title">Gin</h3>
               <div class="menu-item"><span>Gin Base</span><span class="price">€6,00</span></div>
               <div class="menu-item"><span>Gin Pompelmo Rosa</span><span class="price">€9,00</span></div>
               <div class="menu-item"><span>Gin Bulldog / Caelestins</span><span class="price">€9,00</span></div>
@@ -450,7 +471,7 @@
               <div class="menu-item"><span>Gin Sabatini 0 Alcol</span><span class="price">€10,00</span></div>
             </div>
             <div class="menu-block">
-              <h4 class="menu-block-title">Classici</h4>
+              <h3 class="menu-block-title">Classici</h3>
               <div class="menu-item"><span>Negroni</span><span class="price">€7,00</span></div>
               <div class="menu-item"><span>Moscow / Italian Mule</span><span class="price">€7,00</span></div>
               <div class="menu-item"><span>Vodka Lemon/Tonic/Redbull</span><span class="price">€7,00</span></div>
@@ -469,23 +490,23 @@
         <div class="menu-panel" data-panel="vini">
           <div class="menu-columns">
             <div class="menu-block">
-              <h4 class="menu-block-title">Bianchi</h4>
+              <h3 class="menu-block-title">Bianchi</h3>
               <div class="menu-item"><span>Pfitscher Pinot Bianco</span><span class="price">€22,00</span></div>
               <div class="menu-item"><span>Gewurztraminer</span><span class="price">€22,00</span></div>
               <div class="menu-item"><span>Bianco Etna Doc</span><span class="price">€22,00</span></div>
               <div class="menu-item"><span>La Valentina Pecorino</span><span class="price">€18,00</span></div>
               <div class="menu-item"><span>Scacciadiavoli Pasdose <em class="signature">★</em></span><span class="price">€25,00</span></div>
-              <h4 class="menu-block-title">Rossi</h4>
+              <h3 class="menu-block-title">Rossi</h3>
               <div class="menu-item"><span>Tabarrini Padrone Vigne <em class="signature">★</em></span><span class="price">€20,00</span></div>
               <div class="menu-item"><span>Etna Rosso Cottanera</span><span class="price">€22,00</span></div>
               <div class="menu-item"><span>Barbera d'Asti</span><span class="price">€22,00</span></div>
               <div class="menu-item"><span>Maculan Pinot Nero</span><span class="price">€25,00</span></div>
             </div>
             <div class="menu-block">
-              <h4 class="menu-block-title">Rosé</h4>
+              <h3 class="menu-block-title">Rosé</h3>
               <div class="menu-item"><span>Tabarrini Bocca di Rosa <em class="signature">★</em></span><span class="price">€25,00</span></div>
               <div class="menu-item"><span>Scacciadiavoli Rosé <em class="signature">★</em></span><span class="price">€25,00</span></div>
-              <h4 class="menu-block-title">Bollicine</h4>
+              <h3 class="menu-block-title">Bollicine</h3>
               <div class="menu-item"><span>Berlucchi Franciacorta</span><span class="price">€32,00</span></div>
               <div class="menu-item"><span>Berlucchi Satèn / Rosé</span><span class="price">€35,00</span></div>
               <div class="menu-item"><span>Bollinger Champagne</span><span class="price">€95,00</span></div>
@@ -498,7 +519,7 @@
         <div class="menu-panel" data-panel="pinse">
           <div class="menu-columns">
             <div class="menu-block">
-              <h4 class="menu-block-title">Pinse Romane</h4>
+              <h3 class="menu-block-title">Pinse Romane</h3>
               <div class="menu-item"><span>Pinsa Bianca</span><span class="price">€6,00</span></div>
               <div class="menu-item"><span>Pinsa Margherita</span><span class="price">€7,00</span></div>
               <div class="menu-item"><span>Pinsa Bianca Crudo/Rucola</span><span class="price">€8,00</span></div>
@@ -506,7 +527,7 @@
               <div class="menu-item"><span>Pinsa Margherita S.Piccante</span><span class="price">€8,00</span></div>
             </div>
             <div class="menu-block">
-              <h4 class="menu-block-title">&nbsp;</h4>
+              <h3 class="menu-block-title">&nbsp;</h3>
               <div class="menu-item"><span>Pinsa Zucchine/Prosciutto</span><span class="price">€9,00</span></div>
               <div class="menu-item"><span>Pinsa Margherita Funghi</span><span class="price">€8,00</span></div>
               <div class="menu-item"><span>Pinsa Salsiccia e Patate</span><span class="price">€9,00</span></div>
@@ -568,8 +589,9 @@
         mezzanotte — c'è sempre un posto per te.
       </p>
       <div class="cta-buttons reveal fade-in-up" style="--delay:0.3s">
-        <a href="#dove-siamo" class="btn-primary pulse">Vieni al Lab →</a>
-        <a href="#menu" class="btn-secondary">Guarda il Menu</a>
+        <a href="#dove-siamo" class="btn-primary pulse">📍 Raggiungi il Lab</a>
+        <a href="#menu" class="btn-secondary">Guarda cosa si beve →</a>
+        <a href="tel:+390743522753" class="btn-secondary">📞 Chiamaci</a>
       </div>
       <p class="cta-micro reveal fade-in">Biliardino · PS5 · Karaoke · Cocktail</p>
     </div>
@@ -579,7 +601,8 @@
   <section class="section info" id="dove-siamo">
     <div class="container info-grid">
       <div class="info-col reveal slide-in-left">
-        <p class="eyebrow info-eyebrow">DOVE SIAMO</p>
+        <p class="eyebrow info-eyebrow">FAI UN SALTO A SAN MARTINO</p>
+        <h2 class="info-title">Come raggiungere il Lab a San Martino in Trignano (Spoleto)</h2>
 
         <div class="info-block">
           <div class="info-icon" aria-hidden="true">📍</div>
@@ -591,7 +614,7 @@
           </div>
         </div>
 
-        <div class="info-block">
+        <div class="info-block" id="orari">
           <div class="info-icon" aria-hidden="true">⏰</div>
           <div><strong>Orari</strong><br />Aperto H24 — tutti i giorni</div>
         </div>
@@ -608,12 +631,13 @@
 
         <div class="info-block">
           <div class="info-icon" aria-hidden="true">📞</div>
-          <div><strong>Contatti</strong><br /><a href="tel:+390000000000" class="info-link">Chiama il Lab</a> <span class="info-tbd">(numero da inserire)</span></div>
+          <div><strong>Blocca il tavolo (o la PS5)</strong><br />
+            <a href="tel:+390743522753" class="info-link">📞 0743 522753</a>
+          </div>
         </div>
 
         <div class="info-social">
-          <a href="https://www.instagram.com/the_lab_caffe" target="_blank" rel="noopener">📸 Instagram: @the_lab_caffe</a>
-          <a href="#" class="fb">👥 Facebook: the lab Caffè</a>
+          <a href="https://www.instagram.com/the_lab_caffe" target="_blank" rel="noopener" aria-label="Instagram di The Lab Caffè (@the_lab_caffe)">📸 Instagram: @the_lab_caffe</a>
         </div>
       </div>
 
@@ -632,31 +656,34 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-top">
-        <a href="#hero" class="footer-logo" aria-label="The Lab Caffè">
-          <img src="assets/logo.png" alt="The Lab Caffè" class="footer-logo-img" />
+        <a href="#hero" class="footer-logo">
+          <picture>
+            <source srcset="assets/logo.webp" type="image/webp" />
+            <img src="assets/logo.png" alt="The Lab Caffè — bar a San Martino in Trignano, Spoleto" class="footer-logo-img" width="630" height="786" loading="lazy" />
+          </picture>
         </a>
         <p class="footer-addr">Viale Cerquestrette 36 · Spoleto</p>
       </div>
       <nav class="footer-links">
         <a href="#menu">Menu</a>
         <a href="#eventi">Eventi</a>
-        <a href="#dove-siamo">Dove Siamo</a>
+        <a href="#orari">Orari</a>
+        <a href="#dove-siamo">Raggiungi il Lab</a>
       </nav>
       <div class="footer-social">
-        <a href="https://www.instagram.com/the_lab_caffe" target="_blank" rel="noopener">📸 Instagram</a>
-        <a href="#">👥 Facebook</a>
+        <a href="https://www.instagram.com/the_lab_caffe" target="_blank" rel="noopener" aria-label="Instagram di The Lab Caffè">📸 Instagram</a>
       </div>
       <div class="footer-divider"></div>
       <p class="footer-copy">© 2025 The Lab Caffè · Tutti i diritti riservati</p>
-      <p class="footer-piva">P.IVA da inserire</p>
+      <!-- TODO: quando disponibile la Partita IVA, aggiungere qui: <p class="footer-piva">P.IVA 01234567890</p> -->
     </div>
   </footer>
 
-  <!-- Barra CTA fissa (solo mobile) — aggiorna il numero di telefono -->
+  <!-- Barra CTA fissa (solo mobile) -->
   <nav class="mobile-cta-bar" id="mobileCtaBar" aria-label="Azioni rapide">
     <a href="#menu" class="mcta-ghost">Menu</a>
-    <a href="tel:+390000000000" class="mcta-primary">Chiama</a>
-    <a href="https://www.google.com/maps/dir/?api=1&destination=42.739564990059165,12.6704439791667" target="_blank" rel="noopener" class="mcta-ghost">Indicazioni</a>
+    <a href="tel:+390743522753" class="mcta-primary">Chiama</a>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=42.739565,12.670444" target="_blank" rel="noopener" class="mcta-ghost" aria-label="Indicazioni stradali su Google Maps">Mappa</a>
   </nav>
 
   <!-- Scripts -->

@@ -18,6 +18,13 @@
   --elettrico-rgb: 166, 90, 46;
   --ambra-rgb:     232, 168, 56;
 
+  /* Accento unico per TUTTE le CTA (alias semantico → ambra dal logo) */
+  --accent:     var(--ambra);
+  --accent-rgb: var(--ambra-rgb);
+
+  /* Raggio standard di bottoni/elementi interattivi (≈ Tailwind rounded-lg) */
+  --radius: 10px;
+
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --maxw: 1160px;
 }
@@ -49,9 +56,9 @@ button:focus-visible,
 .hamburger:focus-visible,
 .mcta-primary:focus-visible,
 .mcta-ghost:focus-visible {
-  outline: 3px solid var(--ambra);
+  outline: 3px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 6px;
+  border-radius: var(--radius);
 }
 /* Testi secondari su sfondo CHIARO: tono più scuro per il contrasto */
 .menu-sub, .menu-note, .info-tbd { color: #6E6456; }
@@ -90,27 +97,27 @@ button:focus-visible,
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 16px;
+  min-height: 44px;               /* tap target ≥ 44px */
   cursor: pointer;
-  border-radius: 6px;
-  transition: transform 0.3s var(--ease), filter 0.3s var(--ease),
-              background 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  border-radius: var(--radius);
+  transition: all 0.2s var(--ease);   /* transition-all duration-200 */
 }
 
 .btn-primary {
-  background: var(--ambra);
+  background: var(--accent);
   color: var(--notte);
   padding: 14px 32px;
-  border: 1px solid var(--ambra);
+  border: 1px solid var(--accent);
 }
-.btn-primary:hover { filter: brightness(1.1); transform: translateY(-2px); }
+.btn-primary:hover { filter: brightness(1.1); transform: translateY(-2px) scale(1.02); }
 
 .btn-secondary {
   background: transparent;
-  color: var(--ambra);
+  color: var(--accent);
   padding: 14px 32px;
-  border: 1px solid var(--ambra);
+  border: 1px solid var(--accent);
 }
-.btn-secondary:hover { background: rgba(232, 168, 56, 0.1); }
+.btn-secondary:hover { background: rgba(var(--accent-rgb), 0.1); transform: translateY(-2px) scale(1.02); }
 .btn-secondary.dark { color: var(--notte); border-color: var(--notte); }
 .btn-secondary.dark:hover { background: rgba(13, 13, 26, 0.06); }
 
@@ -185,19 +192,22 @@ button:focus-visible,
 }
 
 .btn-nav-cta {
-  background: var(--ambra);
+  background: var(--accent);
   color: var(--notte);
   padding: 10px 22px;
   font-size: 15px;
 }
-.btn-nav-cta:hover { filter: brightness(1.1); transform: translateY(-2px); }
+.btn-nav-cta:hover { filter: brightness(1.1); transform: translateY(-2px) scale(1.02); }
 
 /* Hamburger */
 .hamburger {
   display: none;
   flex-direction: column;
   justify-content: space-between;
+  /* content-box + padding: area tap ≥44×44 senza ingrandire le barre (margin compensa il layout) */
+  box-sizing: content-box;
   width: 28px; height: 20px;
+  padding: 12px; margin: -12px;
   background: none; border: none; cursor: pointer;
   z-index: 1100;
 }
@@ -353,6 +363,18 @@ button:focus-visible,
   margin-bottom: 28px;
 }
 .hero-line { display: block; }
+/* Sotto-riga dell'H1: porta le keyword locali senza rubare la scena allo slogan */
+.hero-h1-seo {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--gesso);
+  opacity: 0.85;
+  margin-top: 18px;
+  max-width: 34ch;
+}
 
 .hero-sub {
   max-width: 560px;
@@ -658,14 +680,14 @@ button:focus-visible,
   font-size: 15px;
   font-weight: 600;
   padding: 10px 20px;
-  border-radius: 6px;
+  border-radius: var(--radius);
   border: 1px solid var(--elettrico);
   background: transparent;
   color: var(--fumo);
   cursor: pointer;
-  transition: background 0.3s var(--ease), color 0.3s var(--ease);
+  transition: all 0.2s var(--ease);
 }
-.menu-tab:hover { background: rgba(var(--elettrico-rgb), 0.08); }
+.menu-tab:hover { background: rgba(var(--elettrico-rgb), 0.08); transform: scale(1.02); }
 .menu-tab.active { background: var(--elettrico); color: var(--bianco); }
 
 .menu-panel { display: none; }
@@ -702,7 +724,8 @@ button:focus-visible,
   transition: background 0.2s var(--ease);
 }
 .menu-item:hover { background: rgba(var(--elettrico-rgb), 0.07); }
-.menu-item em { font-style: italic; color: var(--cemento); font-size: 13px; }
+/* #6E6456 su sfondo chiaro (gesso) ≈ 5.1:1 — leggibile (var(--cemento) era ~2.4:1) */
+.menu-item em { font-style: italic; color: #6E6456; font-size: 13px; }
 .menu-item em.signature { color: var(--ambra); font-weight: 600; }
 .price {
   font-family: 'Inter', sans-serif;
@@ -710,8 +733,29 @@ button:focus-visible,
   color: var(--ambra);
   white-space: nowrap;
 }
-.menu-note { font-size: 13px; color: var(--cemento); font-style: italic; margin-top: 12px; }
+.menu-note { font-size: 13px; color: #6E6456; font-style: italic; margin-top: 12px; }
 .menu-digital { text-align: center; margin-top: 48px; }
+.menu-digital-top { margin-top: 0; margin-bottom: 40px; }
+
+/* WhatsApp CTA — NON in uso: il locale ha solo un numero fisso (WhatsApp richiede un mobile).
+   Stile conservato: riattivare la CTA in HTML quando sarà disponibile un numero WhatsApp Business. */
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 14px 32px;
+  border-radius: var(--radius);
+  background: #25D366;
+  color: #0A2A16;
+  border: 1px solid #25D366;
+  min-height: 48px;
+  transition: all 0.2s var(--ease);
+}
+.btn-whatsapp:hover { filter: brightness(1.05); transform: translateY(-2px) scale(1.02); }
 
 /* =========================================================
    EVENTI
@@ -816,7 +860,15 @@ button:focus-visible,
   gap: 56px;
   align-items: start;
 }
-.info-eyebrow { color: var(--elettrico); margin-bottom: 28px; }
+.info-eyebrow { color: var(--elettrico); margin-bottom: 10px; }
+.info-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.15;
+  color: var(--notte);
+  margin: 0 0 28px;
+}
 .info-block {
   display: flex;
   gap: 16px;
@@ -880,11 +932,14 @@ button:focus-visible,
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 48px;
-  border-radius: 8px;
+  min-height: 48px;          /* touch target ≥ 44×44 */
+  min-width: 44px;
+  padding: 0 8px;
+  border-radius: var(--radius);
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 15px;
+  white-space: nowrap;
 }
 .mcta-primary { background: var(--ambra); color: var(--notte); }
 .mcta-ghost {
@@ -940,14 +995,26 @@ button:focus-visible,
 
   .nav-links, .btn-nav-cta { display: none; }
   .hamburger { display: flex; }
-  .nav-logo-img { height: 42px; }
+  /* Logo navbar ridotto ~60% su mobile (da 60px desktop → 26px) per liberare spazio.
+     TODO opzionale: alzare a ~30px se lo si vuole più leggibile. */
+  .nav-logo-img { height: 26px; }
   .footer-logo-img { height: 76px; }
 
   .hero-inner { padding: 120px 24px 160px; }
   .hero-headline { font-size: 40px; }
+  .hero-h1-seo { font-size: 16px; }
   .section-title { font-size: 32px; }
   .solution-headline { font-size: 34px; }
+  .info-title { font-size: 24px; }
   .cta-headline { font-size: 40px; }
+
+  /* Tap target ≥44px anche per i link testuali/social su mobile */
+  .footer-links a, .footer-social a, .info-social a, .info-link,
+  .social-cta, .eventi-cta {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
 
   .hero-cta { flex-direction: column; align-items: stretch; }
   .hero-cta .btn-primary, .hero-cta .btn-secondary { width: 100%; }
@@ -964,6 +1031,10 @@ button:focus-visible,
   .pillars { flex-direction: column; gap: 28px; }
 
   .menu-columns { grid-template-columns: 1fr; gap: 8px; }
+  /* Nomi voce e prezzi leggibili su mobile: min 16px */
+  .menu-item { font-size: 16px; }
+  .menu-item > span:first-child,
+  .menu-item .price { font-size: 16px; }
   .menu-tabs {
     flex-wrap: nowrap;
     justify-content: flex-start;
