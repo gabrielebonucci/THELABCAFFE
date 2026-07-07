@@ -77,6 +77,15 @@
     if (e.key === 'Escape') closeMenu();
   });
 
+  /* ---------- Mappa: attiva l'interazione solo dopo un tap (no scroll-hijack) ---------- */
+  const mapWrap = document.querySelector('.map-wrap');
+  const mapGuard = document.querySelector('.map-guard');
+  if (mapWrap && mapGuard) {
+    mapGuard.addEventListener('click', function () {
+      mapWrap.classList.add('active');
+    });
+  }
+
   /* ---------- Scrollspy: evidenzia il link della sezione attiva ---------- */
   const navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
   if (navLinks.length && 'IntersectionObserver' in window) {
